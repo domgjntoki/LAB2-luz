@@ -18,10 +18,8 @@ void lcdPrint();
 
 int main(void){
 	initialConfig();	// configura os terminais
-	uart_init();		// inicia a UART
 	setADC();			// configura o ADC
 	setTimer();			// configura o TIMER
-	I2C_Init();			// inicia o I2C
 	
 	while(1){
 		readInputs();

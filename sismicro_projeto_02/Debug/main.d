@@ -15,14 +15,7 @@ main.d main.o: .././main.c \
  f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././deps/io.h .././deps/functions.h .././deps/io.h .././deps/lcd.h \
- f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././deps/rtc.h \
- f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- .././deps/i2c.h .././deps/uart.h
+ .././deps/io.h .././deps/functions.h .././deps/io.h
 
 f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -61,21 +54,3 @@ f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\incl
 .././deps/functions.h:
 
 .././deps/io.h:
-
-.././deps/lcd.h:
-
-f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
-
-f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
-
-.././deps/rtc.h:
-
-f:\dev\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
-
-.././deps/i2c.h:
-
-.././deps/uart.h:
