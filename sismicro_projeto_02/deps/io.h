@@ -80,4 +80,11 @@ void resetTimer() {
 	TCNT1 = 0xC2F7;
 }
 
+// configura a Interrupção Externa (INT0)
+void setINT0(){
+	EICRA = 0b00000010; // interrupção externa INT0 na borada de descida
+	EIMSK = 0b00000001; // habilita interrupção externa INT0
+	sei();
+}
+
 #endif

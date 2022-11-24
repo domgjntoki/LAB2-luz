@@ -1,7 +1,7 @@
 #ifndef CUSTOM_FUNCTIONS_H
 #define CUSTOM_FUNCTIONS_H
 
-#include "io.h";
+#include "io.h"
 
 #define CACHE_SIZE 10
 
@@ -13,7 +13,7 @@ float luminosity = 0;
 
 uint8_t systemUp = 0;
 uint8_t buttonStillPressed = 0;
-
+uint16_t estado_botao = 0;
 
 // configura os terminais na inicializacao
 void initialConfig() {
@@ -30,9 +30,9 @@ void initialConfig() {
 	write(D,2,LOW);
 }
 
-// liga ou desliga led conforme entrada do botao
-void readInputs() {
-	if (read(PIND,PORTD2)) {
+void systemOn(){
+	estado_botao ^= PIND2;
+	if (estado_botao) {
 		if (buttonStillPressed == 0) {
 			systemUp = (1-systemUp);
 		}

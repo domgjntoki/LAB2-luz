@@ -3,6 +3,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <util/delay.h>
 #include "deps/io.h"
 #include "deps/functions.h"
 
@@ -20,9 +21,9 @@ int main(void){
 	initialConfig();	// configura os terminais
 	setADC();			// configura o ADC
 	setTimer();			// configura o TIMER
+	setINT0();			// configura a Interrupção externa (INT0)
 	
 	while(1){
-		readInputs();
 		if(printFlag) {
 			printFlag = 0;
 			voltage = convertVoltage(readADC(VOLTAGE_PIN));	// lê o valor de temperatura
@@ -40,6 +41,10 @@ int main(void){
 
 // interrupções
 ISR(TIMER1_OVF_vect){
-	resetTimer();		// renicia o TIMER1
+	resetTimer();		// reinicia o TIMER1
 	printFlag = 1;
+}
+
+ISR(INT0_vect){
+	systemOn();
 }
