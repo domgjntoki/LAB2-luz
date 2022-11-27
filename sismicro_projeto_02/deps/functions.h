@@ -10,6 +10,7 @@ float voltage = 0;
 float current = 0;
 float temperature = 0;
 float luminosity = 0;
+uint8_t control = 0;
 
 uint8_t systemUp = 0;
 uint8_t buttonStillPressed = 0;
@@ -69,6 +70,10 @@ float convertTemperature(uint16_t readValue) { // temperatura vai de -55 a 150
 // converte o sinal de tensao para o valor de indice UV
 float convertLuminosity(uint16_t readValue) {
 	return getVoltage(readValue);
+}
+
+uint8_t receive_data(){
+	return data;
 }
 
 #endif

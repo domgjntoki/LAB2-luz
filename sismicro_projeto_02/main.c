@@ -22,6 +22,7 @@ int main(void){
 	setADC();			// configura o ADC
 	setTimer();			// configura o TIMER
 	setINT0();			// configura a Interrupção externa (INT0)
+	uart_initialization(9600);
 	
 	while(1){
 		if(printFlag) {
@@ -30,7 +31,8 @@ int main(void){
 			current = convertCurrent(readADC(CURRENT_PIN));			// lê o valor de umidade
 			luminosity = convertLuminosity(readADC(LUMINOSITY_PIN));			// lê o valor de índice UV
 			temperature = convertTemperature(readADC(TEMPERATURE_PIN));
-			if (systemUp && luminosity <= 1.0 && current <= 2.0 && voltage <= 2.0 && temperature <= 55.0) { 
+			control = receive_data();
+			if (control && systemUp && luminosity <= 1.0 && current <= 2.0 && voltage <= 2.0 && temperature <= 55.0) { 
 				PORTB |= (1<<5);
 			} else {
 				PORTB &= ~(1<<5);

@@ -9,6 +9,12 @@
 #define C	2
 #define D	3
 
+#define F_CPU 16000000UL
+
+#include <avr/interrupt.h>
+
+uint8_t data = 0;
+
 // configura um PIN como entrada ou saída
 void set(uint8_t x, uint8_t number, uint8_t value) {
 	switch (x) {
@@ -85,6 +91,23 @@ void setINT0(){
 	EICRA = 0b00000010; // interrupção externa INT0 na borada de descida
 	EIMSK = 0b00000001; // habilita interrupção externa INT0
 	sei();
+}
+
+void uart_initialization(uint32_t baud){
+	uint8_t speed = 16;
+	
+	baud = (F_CPU/(speed * baud)) - 1;
+	
+	UBRR0H = (baud) >> 8;
+	UBRR0L = baud;
+	
+	UCSR0B |= (1 << RXEN0) | (1 << RXCIE0);
+	UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+	sei();
+}
+
+ISR(USART_RX_vect){
+	data = UDR0;
 }
 
 #endif
